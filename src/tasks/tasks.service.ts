@@ -11,11 +11,11 @@ export class TasksService {
     return this._tasks;
   }
 
-  createTask(createTaskDTO: CreateTaskDTO): TaskInterface {
+  createTask({ title, description }: CreateTaskDTO): TaskInterface {
     const task: TaskInterface = {
       id: uuidv4(),
-      description: createTaskDTO.description,
-      title: createTaskDTO.title,
+      description,
+      title,
       status: TaskStatusEnum.OPEN,
     };
     this._tasks.push(task);
