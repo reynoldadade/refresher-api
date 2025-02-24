@@ -11,7 +11,8 @@ export class TasksService {
     return this._tasks;
   }
 
-  createTask({ title, description }: CreateTaskDTO): TaskInterface {
+  createTask(createTaskDTO: CreateTaskDTO): TaskInterface {
+    const { title, description } = createTaskDTO;
     const task: TaskInterface = {
       id: uuidv4(),
       description,
